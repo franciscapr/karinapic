@@ -1,0 +1,24 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>All Comments</h1>
+
+<% @comments.each do |comment| %>
+  <% if comment.user %>
+    <p><strong><%= comment.user.name %>:</strong> <%= comment.content %></p>
+  <% else %>
+    <p><strong>Usuario Desconocido:</strong> <%= comment.content %></p>
+  <% end %>
+<% end %>
+
+
+
+<div id="comments">
+  <% @comments.each do |comment| %>
+    <%= render comment %>
+    <p>
+      <%= link_to "Show this comment", comment %>
+    </p>
+  <% end %>
+</div>
+
+

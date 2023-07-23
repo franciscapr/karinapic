@@ -1,0 +1,21 @@
+<!-- app/views/users/edit.html.erb -->
+<h2>Edit User Profile</h2>
+
+<%= form_for(current_user, url: user_path, html: { method: :put, multipart: true }) do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+
+  <%= form.label :email %>
+  <%= form.email_field :email %>
+
+  <%= form.label :password %>
+  <%= form.password_field :password %>
+
+  <%= form.label :current_password %>
+  <%= form.password_field :current_password %>
+
+  <%= form.label :profile_picture %>
+  <%= form.file_field :profile_picture %>
+
+  <%= form.submit "Update" %>
+<% end %>

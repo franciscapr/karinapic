@@ -1,0 +1,20 @@
+<!-- app/views/pictures/index.html.erb -->
+<div class="container text-center">
+  <div class="row">
+    <% @pictures.each do |picture| %>
+      <div class="col">
+        <div class="card" style="width: 18rem;">
+          <% if picture.image.attached? %>
+            <%= link_to image_tag(picture.image, class: "card-img-top"), picture %>
+          <% else %>
+            <%= image_tag "placeholder_image.png", class: "card-img-top" %>
+          <% end %>
+          <div class="card-body">
+            <h5 class="card-title"><%= picture.name %></h5> 
+            <p class="card-text"><%= picture.description %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

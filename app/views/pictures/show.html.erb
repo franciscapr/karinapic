@@ -1,0 +1,22 @@
+<p style="color: green"><%= notice %></p>
+<%= render @picture %>
+<h1><%= @picture.name %></h1>
+<p><%= @picture.description %></p>
+
+<%= form_for([@picture, Comment.new]) do |form| %>
+  <%= form.text_area :content, placeholder: "Escribe un comentario..." %>
+  <%= form.submit "Comentar" %>
+<% end %>
+
+<h2>Comentarios:</h2>
+<% @picture.comments.each do |comment| %>
+  <p><%= comment.content %></p>
+<% end %>
+
+<div>
+  <%= link_to "Edit this picture", edit_picture_path(@picture) %> |
+  <%= link_to "Back to pictures", pictures_path %> |
+  <%= link_to "All Comments", comments_path %>
+  <%= button_to "Destroy this picture", @picture, method: :delete %>
+</div>
+
